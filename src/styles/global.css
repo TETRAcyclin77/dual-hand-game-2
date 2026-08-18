@@ -1,0 +1,84 @@
+:root {
+  /* --- Design tokens --- */
+  /* background / structure */
+  --bg-void: #0a0e17;
+  --bg-panel: #10151f;
+  --bg-panel-raised: #161d2b;
+  --line-hair: rgba(232, 236, 241, 0.08);
+
+  /* left hand = action (WASD) */
+  --hand-l: #f2a65a;
+  --hand-l-dim: rgba(242, 166, 90, 0.18);
+
+  /* right hand = puzzle (JIKL) */
+  --hand-r: #4fe0c8;
+  --hand-r-dim: rgba(79, 224, 200, 0.18);
+
+  /* status */
+  --danger: #e2534c;
+  --text-hi: #eef1f6;
+  --text-lo: #7f8aa3;
+
+  --font-display: 'Chakra Petch', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--bg-void);
+  color: var(--text-hi);
+  font-family: var(--font-mono);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: var(--font-display);
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.app-root {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background:
+    radial-gradient(circle at 20% 10%, var(--hand-l-dim), transparent 40%),
+    radial-gradient(circle at 80% 90%, var(--hand-r-dim), transparent 40%),
+    var(--bg-void);
+}
+
+::selection {
+  background: var(--hand-r-dim);
+}
+
+:focus-visible {
+  outline: 2px solid var(--hand-r);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
